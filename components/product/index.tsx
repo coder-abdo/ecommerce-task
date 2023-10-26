@@ -12,6 +12,7 @@ import { FC } from "react";
 import Image from "next/image";
 import { RatingComp } from "@/components/ratings";
 import { DollarSign } from "lucide-react";
+import Link from "next/link";
 interface Props {
   product: IProduct;
 }
@@ -19,7 +20,9 @@ export const Product: FC<Props> = ({ product }) => {
   return (
     <Card className="w-[350px] flex flex-col justify-between">
       <CardHeader>
-        <CardTitle>{product.title}</CardTitle>
+        <CardTitle className="hover:text-yellow-500 hover:underline hover:cursor-pointer">
+          <Link href={`/products/${product.id}`}>{product.title}</Link>
+        </CardTitle>
         <CardDescription>{product.description}</CardDescription>
       </CardHeader>
       <CardContent>
